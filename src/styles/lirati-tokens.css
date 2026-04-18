@@ -1,0 +1,271 @@
+/* =========================================================
+   Lirati — Design System
+   Source: syria-currency app (theme/colors.ts, theme/globals.ts,
+   constants/design-system.md, docs/marketing-color-scheme.md)
+   ========================================================= */
+
+/* -----------------------------
+   Brand palette (named tokens)
+   ----------------------------- */
+:root {
+  /* Syrian Identity palette */
+  --color-forest: #0e3c36; /* primary brand green */
+  --color-emerald-shadow: #0b2f2a; /* depth, dark accents  */
+  --color-mountain-teal: #3d7f78; /* secondary green, denom 500 */
+  --color-golden-wheat: #c8a24b; /* secondary brand gold */
+  --color-antique-sand: #d8c5a6; /* warm neutral */
+  --color-ivory-mist: #ffffff; /* light fg / pure white */
+  --color-deep-umber: #3a1f1a; /* deep warm dark */
+  --color-black-cherry: #2a0f15; /* deep warm dark */
+  --color-damask-red: #a61e2b; /* accent red, CTAs */
+  --color-charcoal: #00160a; /* near-black text bg */
+  --color-stone: #9a9a96; /* neutral gray */
+  --color-white: #ffffff;
+
+  /* Variants used through the app */
+  --color-accent-light: #c84a55;
+  --color-accent-dark: #7e121c;
+  --color-secondary-light: #e0c373;
+  --color-secondary-dark: #8e6e1f;
+  --color-primary-light: #3d7f78; /* mountain teal */
+  --color-primary-dark: #0b2f2a; /* emerald shadow */
+  --color-splash-green: #1e361e; /* native splash bg */
+
+  /* Light theme — surfaces */
+  --bg: #f5f7f9;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-alt: #ffffff;
+  --border: #d0c7bc;
+  --border-subtle: #e0d9cf;
+  --input-border: #b8afa5;
+
+  /* Light theme — text */
+  --text: #00160a;
+  --text-secondary: #2e3234;
+  --text-muted: #4a4e50;
+  --placeholder: #4a4e50;
+
+  /* Semantic */
+  --primary: var(--color-forest);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-golden-wheat);
+  --secondary-foreground: var(--color-charcoal);
+  --accent: var(--color-damask-red);
+  --accent-foreground: #ffffff;
+  --success: var(--color-forest);
+  --warning: var(--color-golden-wheat);
+  --error: var(--color-damask-red);
+  --info: #1976d2;
+
+  /* Denomination colors */
+  --denom-500: var(--color-mountain-teal);
+  --denom-200: var(--color-emerald-shadow);
+  --denom-100: var(--color-forest);
+  --denom-50: var(--color-damask-red);
+  --denom-25: var(--color-golden-wheat);
+  --denom-10: var(--color-stone);
+
+  /* Glassmorphic overlays (light) */
+  --glass-overlay: rgba(255, 255, 255, 0.5);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-bg: rgba(0, 0, 0, 0.02);
+
+  /* Neumorphic shadow colors (light) */
+  --shadow-light: #ffffff;
+  --shadow-dark: #c9c2b9;
+
+  /* -----------------------------
+     Spacing — 8-point grid
+     ----------------------------- */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+  --space-5xl: 48px;
+  --space-6xl: 64px;
+
+  /* -----------------------------
+     Border radius
+     ----------------------------- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  /* -----------------------------
+     Shadows
+     ----------------------------- */
+  --shadow-sm: 0 1px 2px rgba(0, 22, 10, 0.08);
+  --shadow-md: 0 2px 4px rgba(0, 22, 10, 0.1);
+  --shadow-lg: 0 4px 16px rgba(0, 22, 10, 0.12);
+
+  /* Neumorphic shadow pairs (raised) */
+  --neu-raised:
+    6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  --neu-inset:
+    inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px
+    var(--shadow-light);
+  --neu-subtle: 3px 3px 6px var(--shadow-dark);
+
+  /* -----------------------------
+     Animation
+     ----------------------------- */
+  --anim-fast: 150ms;
+  --anim-normal: 250ms;
+  --anim-slow: 400ms;
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasised: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Font stacks: --font-sans / --font-arabic set in globals.css (Next font variables) */
+  --font-rounded:
+    "SF Pro Rounded", "Hiragino Maru Gothic ProN", Meiryo, system-ui, sans-serif;
+  --font-mono:
+    SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+/* Dark theme tokens (override on .dark or [data-theme="dark"]) */
+.dark,
+[data-theme="dark"] {
+  --bg: #00160a;
+  --surface: #0d211c;
+  --surface-raised: #151e1c;
+  --surface-alt: #2a2d2e;
+  --border: #2e3436;
+  --border-subtle: #252829;
+  --input-border: #2e3436;
+
+  --text: #ffffff;
+  --text-secondary: #c9c7c3;
+  --text-muted: #8f8d8a;
+  --placeholder: #8f8d8a;
+
+  --primary: #1e6a61;
+  --secondary: #e0c373;
+  --accent: #c84a55;
+  --error: #c84a55;
+  --warning: #e0c373;
+  --success: var(--color-mountain-teal);
+
+  --denom-500: #5aa79f;
+  --denom-200: #2f6e66;
+  --denom-100: #1e6a61;
+  --denom-50: #d15a64;
+  --denom-25: #e6cf8a;
+  --denom-10: #b0b0ac;
+
+  --glass-overlay: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.03);
+
+  --shadow-light: #2a2f31;
+  --shadow-dark: #0e1112;
+}
+
+/* =========================================================
+   Typography scale (semantic)
+   Mirrors theme/globals.ts Typography
+   ========================================================= */
+
+.t-display-large {
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+.t-display-medium {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.t-headline-large {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 600;
+}
+.t-headline-medium {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+.t-headline-small {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+.t-body-large {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.t-body-medium {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.t-body-small {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+.t-label-large {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+.t-label-medium {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+}
+.t-label-small {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+.t-currency-large {
+  font-size: 36px;
+  line-height: 44px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  font-variant-numeric: tabular-nums;
+}
+.t-currency-medium {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.t-currency-small {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Settings hero variants */
+.t-hero-eyebrow {
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 600;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+}
+.t-hero-title {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 800;
+  letter-spacing: -0.35px;
+}
+
+/* Element defaults: see lirati.css + globals.css */
