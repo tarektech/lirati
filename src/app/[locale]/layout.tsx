@@ -1,10 +1,75 @@
+import type { Metadata } from "next";
 import { setStaticParamsLocale } from "next-international/server";
-import { LocaleHtmlAttributes } from "@/components/site/locale-html";
+import { getSiteUrl } from "@/lib/site-url";
 import { I18nProviderClient } from "@/locales/client";
 import { getStaticParams } from "@/locales/server";
 
+const locales = ["ar", "en"] as const;
+type AppLocale = (typeof locales)[number];
+
+function isAppLocale(s: string): s is AppLocale {
+  return (locales as readonly string[]).includes(s);
+}
+
 export function generateStaticParams() {
   return getStaticParams();
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: raw } = await params;
+  const locale = isAppLocale(raw) ? raw : "ar";
+  const base = new URL(getSiteUrl());
+
+  const { default: en } = await import("@/locales/en");
+  const { default: ar } = await import("@/locales/ar");
+  const seo = locale === "ar" ? ar.seo : en.seo;
+
+  const arUrl = new URL("/ar", base).toString();
+  const enUrl = new URL("/en", base).toString();
+
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        ar: arUrl,
+        en: enUrl,
+        "x-default": arUrl,
+      },
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true },
+    },
+    openGraph: {
+      type: "website",
+      siteName: "Lirati",
+      locale: locale === "ar" ? "ar_SY" : "en_US",
+      alternateLocale: locale === "ar" ? ["en_US"] : ["ar_SY"],
+      url: `/${locale}`,
+      title: seo.title,
+      description: seo.description,
+      images: [
+        {
+          url: "/assets/logo/syp-logo-transparent.png",
+          width: 512,
+          height: 512,
+          alt: "Lirati",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seo.title,
+      description: seo.description,
+    },
+  };
 }
 
 export default async function LocaleLayout({
@@ -14,12 +79,12 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
-  const { locale } = await params;
+  const { locale: raw } = await params;
+  const locale = isAppLocale(raw) ? raw : "ar";
   setStaticParamsLocale(locale);
 
   return (
     <I18nProviderClient locale={locale} fallback={null}>
-      <LocaleHtmlAttributes />
       {children}
     </I18nProviderClient>
   );

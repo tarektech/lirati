@@ -17,16 +17,14 @@ export const TICKER_DATA = [
   { code: "GBP", val: "142.80", chg: "-0.2%", up: false, flag: "🇬🇧" },
   { code: "JOD", val: "160.55", chg: "+0.1%", up: true, flag: "🇯🇴" },
   { code: "EGP", val: "2.34", chg: "+0.4%", up: true, flag: "🇪🇬" },
-  
 ] as const;
-
 
 type Denomination = {
   amount: string;
   border: string;
   grad: string;
   image: string;
-}
+};
 
 export const DENOMINATIONS: Denomination[] = [
   {

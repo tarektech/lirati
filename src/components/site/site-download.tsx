@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useI18n } from "@/locales/client";
 import { RichHtml } from "./rich-html";
@@ -7,14 +8,25 @@ import { RichHtml } from "./rich-html";
 function AppleIcon() {
   return (
     <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+      width="24"
+      height="24"
     >
-      <title>Apple</title>
-      <path d="M16.365 1.43c0 1.14-.493 2.27-1.177 3.08-.744.9-1.99 1.57-2.987 1.57-.12 0-.23-.02-.3-.03-.01-.06-.04-.22-.04-.39 0-1.15.572-2.27 1.206-2.98.804-.94 2.142-1.64 3.248-1.68.03.13.05.28.05.43zm4.565 15.71c-.03-3.13 2.55-4.66 2.66-4.74-1.44-2.13-3.7-2.42-4.5-2.45-1.92-.19-3.74 1.13-4.71 1.13-.97 0-2.46-1.09-4.05-1.06-2.08.03-4.04 1.21-5.12 3.07-2.18 3.78-.55 9.36 1.57 12.42 1.04 1.5 2.27 3.18 3.87 3.12 1.55-.06 2.14-1.01 4.02-1.01 1.88 0 2.41 1.01 4.05.97 1.67-.02 2.73-1.52 3.75-3.04 1.18-1.74 1.67-3.43 1.69-3.52-.04-.02-3.23-1.24-3.26-4.92z" />
+      <defs>
+        <linearGradient id="SVG1vlmueNw" x1="50%" x2="50%" y1="0%" y2="100%">
+          <stop offset="0%" stopColor="#17C9FB" />
+          <stop offset="100%" stopColor="#1A74E8" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#SVG1vlmueNw)"
+        d="M56.064 0h143.872C230.9 0 256 25.1 256 56.064v143.872C256 230.9 230.9 256 199.936 256H56.064C25.1 256 0 230.9 0 199.936V56.064C0 25.1 25.1 0 56.064 0"
+      />
+      <path
+        fill="#FFF"
+        d="m82.042 185.81l.024.008l-8.753 15.16c-3.195 5.534-10.271 7.43-15.805 4.235s-7.43-10.271-4.235-15.805l6.448-11.168l.619-1.072c1.105-1.588 3.832-4.33 9.287-3.814c0 0 12.837 1.393 13.766 8.065c0 0 .126 2.195-1.351 4.391m124.143-38.72h-27.294c-1.859-.125-2.67-.789-2.99-1.175l-.02-.035l-29.217-50.606l-.038.025l-1.752-2.512c-2.872-4.392-7.432 6.84-7.432 6.84c-5.445 12.516.773 26.745 2.94 31.046l40.582 70.29c3.194 5.533 10.27 7.43 15.805 4.234c5.533-3.195 7.43-10.271 4.234-15.805l-10.147-17.576c-.197-.426-.539-1.582 1.542-1.587h13.787c6.39 0 11.57-5.18 11.57-11.57s-5.18-11.57-11.57-11.57m-53.014 15.728s1.457 7.411-4.18 7.411H48.092c-6.39 0-11.57-5.18-11.57-11.57s5.18-11.57 11.57-11.57h25.94c4.188-.242 5.18-2.66 5.18-2.66l.024.012l33.86-58.648l-.01-.002c.617-1.133.103-2.204.014-2.373l-11.183-19.369c-3.195-5.533-1.299-12.61 4.235-15.804s12.61-1.3 15.805 4.234l5.186 8.983l5.177-8.967c3.195-5.533 10.271-7.43 15.805-4.234s7.43 10.27 4.235 15.804l-47.118 81.61c-.206.497-.269 1.277 1.264 1.414h28.164l.006.275s16.278.253 18.495 15.454"
+      />
     </svg>
   );
 }
@@ -22,85 +34,41 @@ function AppleIcon() {
 function PlayIcon() {
   return (
     <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 283"
+      width="24"
+      height="24"
     >
-      <title>Google Play</title>
-      <path d="M3.609 1.814 13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734c0-.376.232-.7.61-.92zm10.89 10.893 2.302 2.302-10.937 6.333zM6.864 1.658l10.937 6.333-2.302 2.302zm10.082 4.578 3.563 2.063c.95.55.95 1.95 0 2.5l-3.563 2.063L14.499 12z" />
+      <path
+        fill="#EA4335"
+        d="M119.553 134.916L1.06 259.061a32.14 32.14 0 0 0 47.062 19.071l133.327-75.934z"
+      />
+      <path
+        fill="#FBBC04"
+        d="M239.37 113.814L181.715 80.79l-64.898 56.95l65.162 64.28l57.216-32.67a31.345 31.345 0 0 0 0-55.537z"
+      />
+      <path
+        fill="#4285F4"
+        d="M1.06 23.487A30.6 30.6 0 0 0 0 31.61v219.327a32.3 32.3 0 0 0 1.06 8.124l122.555-120.966z"
+      />
+      <path
+        fill="#34A853"
+        d="m120.436 141.274l61.278-60.483L48.564 4.503A32.85 32.85 0 0 0 32.051 0C17.644-.028 4.978 9.534 1.06 23.399z"
+      />
     </svg>
   );
 }
 
 function QrSvg() {
+  const qrCode = "/assets/QR/onelink_to_wvnufm.svg";
   return (
-    <svg
-      viewBox="0 0 100 100"
-      width="100%"
-      height="100%"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden
-    >
-      <title>QR</title>
-      <rect width="100" height="100" fill="#fff" />
-      <g fill="#00160A">
-        <rect x="6" y="6" width="20" height="20" />
-        <rect x="10" y="10" width="12" height="12" fill="#fff" />
-        <rect x="14" y="14" width="4" height="4" />
-        <rect x="74" y="6" width="20" height="20" />
-        <rect x="78" y="10" width="12" height="12" fill="#fff" />
-        <rect x="82" y="14" width="4" height="4" />
-        <rect x="6" y="74" width="20" height="20" />
-        <rect x="10" y="78" width="12" height="12" fill="#fff" />
-        <rect x="14" y="82" width="4" height="4" />
-        <rect x="32" y="6" width="4" height="4" />
-        <rect x="40" y="6" width="4" height="4" />
-        <rect x="48" y="10" width="4" height="4" />
-        <rect x="56" y="6" width="4" height="4" />
-        <rect x="6" y="34" width="4" height="4" />
-        <rect x="14" y="32" width="4" height="4" />
-        <rect x="22" y="36" width="4" height="4" />
-        <rect x="34" y="20" width="4" height="4" />
-        <rect x="42" y="24" width="4" height="4" />
-        <rect x="52" y="20" width="4" height="4" />
-        <rect x="60" y="26" width="4" height="4" />
-        <rect x="68" y="22" width="4" height="4" />
-        <rect x="32" y="32" width="4" height="4" />
-        <rect x="40" y="36" width="4" height="4" />
-        <rect x="48" y="32" width="4" height="4" />
-        <rect x="56" y="38" width="4" height="4" />
-        <rect x="64" y="34" width="4" height="4" />
-        <rect x="32" y="44" width="4" height="4" />
-        <rect x="40" y="48" width="4" height="4" />
-        <rect x="52" y="44" width="4" height="4" />
-        <rect x="60" y="48" width="4" height="4" />
-        <rect x="68" y="44" width="4" height="4" />
-        <rect x="34" y="56" width="4" height="4" />
-        <rect x="42" y="60" width="4" height="4" />
-        <rect x="50" y="56" width="4" height="4" />
-        <rect x="58" y="62" width="4" height="4" />
-        <rect x="32" y="68" width="4" height="4" />
-        <rect x="44" y="68" width="4" height="4" />
-        <rect x="54" y="72" width="4" height="4" />
-        <rect x="66" y="68" width="4" height="4" />
-        <rect x="36" y="78" width="4" height="4" />
-        <rect x="48" y="82" width="4" height="4" />
-        <rect x="58" y="78" width="4" height="4" />
-        <rect x="70" y="82" width="4" height="4" />
-        <rect x="34" y="88" width="4" height="4" />
-        <rect x="44" y="90" width="4" height="4" />
-        <rect x="56" y="88" width="4" height="4" />
-        <rect x="68" y="92" width="4" height="4" />
-        <rect x="80" y="34" width="4" height="4" />
-        <rect x="88" y="40" width="4" height="4" />
-        <rect x="82" y="48" width="4" height="4" />
-        <rect x="90" y="54" width="4" height="4" />
-        <rect x="80" y="60" width="4" height="4" />
-        <rect x="88" y="66" width="4" height="4" />
-      </g>
-    </svg>
+    <Image
+      src={qrCode}
+      alt="QR Code"
+      width={150}
+      height={150}
+      className="w-full h-full object-contain"
+    />
   );
 }
 
@@ -117,14 +85,20 @@ export function SiteDownload() {
           </h2>
           <p>{t("dl.p")}</p>
           <div className="store-row">
-            <Link className="store-btn" href="#">
+            <div
+              className="store-btn opacity-50 cursor-not-allowed"
+              aria-disabled="true"
+            >
               <AppleIcon />
               <div>
                 <span className="sm">{t("dl.iosSm")}</span>
                 <span className="lg">{t("dl.iosLg")}</span>
               </div>
-            </Link>
-            <Link className="store-btn" href="#">
+            </div>
+            <Link
+              className="store-btn"
+              href="https://play.google.com/store/apps/details?id=com.tarekdev.syriacurrency"
+            >
               <PlayIcon />
               <div>
                 <span className="sm">{t("dl.playSm")}</span>

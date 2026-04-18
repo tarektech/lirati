@@ -1,5 +1,10 @@
 export default {
   brand: "Lirati <small>ليرتي</small>",
+  seo: {
+    title: "Lirati — Convert your lira, check every price",
+    description:
+      "Convert old to new Syrian lira, check live rates, and validate prices — Arabic-first.",
+  },
   nav: {
     features: "Features",
     converter: "Live converter",
