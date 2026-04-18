@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Tajawal } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -64,6 +65,7 @@ export default async function RootLayout({
     >
       <body className="min-h-full antialiased">
         <ThemeProvider>{children}</ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
