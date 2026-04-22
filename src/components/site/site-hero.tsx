@@ -2,7 +2,7 @@
 
 import { useReducedMotion } from "motion/react";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { DEMO_RATE, HERO_CYCLE } from "@/lib/demo-data";
 import { useI18n } from "@/locales/client";
 import { RichHtml } from "./rich-html";
@@ -12,19 +12,30 @@ export function SiteHero() {
   const reduceMotion = useReducedMotion();
   const [idx, setIdx] = useState(0);
   const [fade, setFade] = useState(true);
+  const stepTimeoutRef = useRef<number | undefined>(undefined);
 
   const example = HERO_CYCLE[idx] ?? HERO_CYCLE[0];
 
   useEffect(() => {
     if (reduceMotion) return;
     const id = window.setInterval(() => {
+      if (stepTimeoutRef.current !== undefined) {
+        window.clearTimeout(stepTimeoutRef.current);
+      }
       setFade(false);
-      window.setTimeout(() => {
+      stepTimeoutRef.current = window.setTimeout(() => {
+        stepTimeoutRef.current = undefined;
         setIdx((i) => (i + 1) % HERO_CYCLE.length);
         setFade(true);
       }, 200);
     }, 3200);
-    return () => window.clearInterval(id);
+    return () => {
+      window.clearInterval(id);
+      if (stepTimeoutRef.current !== undefined) {
+        window.clearTimeout(stepTimeoutRef.current);
+        stepTimeoutRef.current = undefined;
+      }
+    };
   }, [reduceMotion]);
 
   const amountStr = useMemo(

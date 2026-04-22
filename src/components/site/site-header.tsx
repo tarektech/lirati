@@ -3,7 +3,7 @@
 import { Globe, Moon, Sun } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { useChangeLocale, useCurrentLocale, useI18n } from "@/locales/client";
 import { RichHtml } from "./rich-html";
@@ -41,6 +41,55 @@ export function SiteHeader() {
   const [activeSection, setActiveSection] = useState<
     (typeof NAV_SCROLL_IDS)[number] | ""
   >("");
+  const navLinksRef = useRef<HTMLElement | null>(null);
+  const [navIndicator, setNavIndicator] = useState<{
+    left: number;
+    width: number;
+    visible: boolean;
+  }>({ left: 0, width: 0, visible: false });
+
+  const measureNavIndicatorRef = useRef<() => void>(() => {});
+  measureNavIndicatorRef.current = () => {
+    const nav = navLinksRef.current;
+    if (!nav) return;
+    if (!activeSection) {
+      setNavIndicator((prev) => ({ ...prev, visible: false }));
+      return;
+    }
+    const active = nav.querySelector<HTMLElement>(
+      `a[href="#${activeSection}"]`,
+    );
+    if (!active) {
+      setNavIndicator((prev) => ({ ...prev, visible: false }));
+      return;
+    }
+    const navRect = nav.getBoundingClientRect();
+    const linkRect = active.getBoundingClientRect();
+    setNavIndicator({
+      left: linkRect.left - navRect.left,
+      width: linkRect.width,
+      visible: true,
+    });
+  };
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: measure reads activeSection via ref assignment each render; rerun on section/locale
+  useLayoutEffect(() => {
+    measureNavIndicatorRef.current();
+  }, [activeSection, currentLocale]);
+
+  useEffect(() => {
+    const nav = navLinksRef.current;
+    if (!nav) return;
+    const onResize = () => measureNavIndicatorRef.current();
+    window.addEventListener("resize", onResize);
+    const resizeObserver = new ResizeObserver(onResize);
+    resizeObserver.observe(nav);
+    document.fonts?.ready?.then(() => measureNavIndicatorRef.current());
+    return () => {
+      window.removeEventListener("resize", onResize);
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains("dark"));
@@ -103,7 +152,21 @@ export function SiteHeader() {
           <RichHtml html={String(t("brand"))} />
         </div>
       </Link>
-      <nav className="nav-links" aria-label="Page sections">
+      <nav
+        ref={navLinksRef}
+        className="nav-links"
+        dir={currentLocale === "en" ? "ltr" : "rtl"}
+        aria-label="Page sections"
+      >
+        <span
+          className="nav-links-indicator"
+          aria-hidden
+          style={{
+            left: navIndicator.left,
+            width: navIndicator.width,
+            opacity: navIndicator.visible ? 0.95 : 0,
+          }}
+        />
         <Link
           href="#features"
           className={cn(activeSection === "features" && "is-active")}

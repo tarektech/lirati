@@ -111,15 +111,17 @@ export function SiteConverter() {
 
           <div className="conv-input-wrap">
             <label htmlFor="conv-in">{labelIn}</label>
-            <input
-              id="conv-in"
-              type="text"
-              className="conv-input"
-              value={input}
-              inputMode="numeric"
-              onChange={onInput}
-            />
-            <span className="suf">{sufIn}</span>
+            <div className="conv-input-inner">
+              <input
+                id="conv-in"
+                type="text"
+                className="conv-input"
+                value={input}
+                inputMode="numeric"
+                onChange={onInput}
+              />
+              <span className="suf">{sufIn}</span>
+            </div>
           </div>
 
           <button

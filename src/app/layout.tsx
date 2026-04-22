@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Tajawal } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
@@ -17,10 +17,13 @@ const tajawal = Tajawal({
   variable: "--font-tajawal",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0e3c36",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   manifest: "/site.webmanifest",
-  themeColor: "#0e3c36",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "48x48" },
