@@ -3,6 +3,7 @@ import { Inter, Tajawal } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { DataBuddyTracker } from "@/components/data-buddy-tracker";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import { getSiteUrl } from "@/lib/site-url";
 
@@ -67,7 +68,10 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full antialiased">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <DataBuddyTracker />
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

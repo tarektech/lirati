@@ -151,7 +151,11 @@ export default {
     },
     "2": {
       q: "How accurate are the exchange rates?",
-      a: "Rates are pulled from a live FX provider (ExchangeRate-API) and refreshed automatically. We treat them as a street-market reference — good enough to check a price, not a substitute for a formal bank quote.",
+      aBefore:
+        "Rates are pulled from ",
+      aAfter:
+        " and refreshed automatically. We treat them as a street-market reference — good enough to check a price, not a substitute for a formal bank quote.",
+      aLinkLabel: "SP Syria",
     },
     "3": {
       q: "Does Lirati work offline?",

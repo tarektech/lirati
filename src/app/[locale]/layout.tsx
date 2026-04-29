@@ -57,10 +57,10 @@ export async function generateMetadata({
       description: seo.description,
       images: [
         {
-          url: "/assets/logo/syp-logo-transparent.png",
-          width: 512,
-          height: 512,
-          alt: "Lirati",
+          url: "/og-lirati.png",
+          width: 1200,
+          height: 630,
+          alt: "Lirati — Syrian lira converter",
         },
       ],
     },
@@ -68,6 +68,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: seo.title,
       description: seo.description,
+      images: ["/og-lirati.png"],
     },
   };
 }

@@ -17,6 +17,12 @@ function faqAnswerPlain(t: LocaleBundle, key: FaqKey): string {
   if (key === "6") {
     return `${t.faq["6"].aBefore}support@tarekzein.com${t.faq["6"].aAfter}`;
   }
+  if (key === "2") {
+    return `${t.faq["2"].aBefore}${t.faq["2"].aLinkLabel}${t.faq["2"].aAfter}`;
+  }
+  if (key === "1") {
+    return `${t.faq["1"].a} ${t.faq["1"].ar}`;
+  }
   return t.faq[key].a;
 }
 

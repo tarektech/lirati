@@ -2,13 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { APPLE_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/app-store-urls";
 import { useI18n } from "@/locales/client";
 import { RichHtml } from "./rich-html";
-
-const APPLE_STORE_URL = "https://apps.apple.com/tr/app/lirati-%D8%AD%D9%88%D9%84%D9%8A-%D9%84%D9%8A%D8%B1%D8%AA%D9%8A/id6761774887";
-const GOOGLE_PLAY_URL = "https://play.google.com/store/apps/details?id=com.tarekdev.syriacurrency";
-
-
 
 function AppleIcon() {
   return (
@@ -88,20 +84,14 @@ export function SiteDownload() {
           </h2>
           <p>{t("dl.p")}</p>
           <div className="store-row">
-            <Link
-              href={APPLE_STORE_URL}
-              className="store-btn"
-            >
+            <Link href={APPLE_STORE_URL} className="store-btn">
               <AppleIcon />
               <div>
                 <span className="sm">{t("dl.iosSm")}</span>
                 <span className="lg">{t("dl.iosLg")}</span>
               </div>
             </Link>
-            <Link
-              className="store-btn"
-              href={GOOGLE_PLAY_URL}
-            >
+            <Link className="store-btn" href={GOOGLE_PLAY_URL}>
               <PlayIcon />
               <div>
                 <span className="sm">{t("dl.playSm")}</span>

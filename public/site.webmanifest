@@ -1,7 +1,7 @@
 {
   "name": "Lirati",
   "short_name": "Lirati",
-  "start_url": "/",
+  "start_url": "/ar",
   "display": "standalone",
   "background_color": "#0e3c36",
   "theme_color": "#0e3c36",
