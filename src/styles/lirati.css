@@ -13,7 +13,8 @@ body {
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
 }
-body[dir="rtl"] {
+html[dir="rtl"] .locale-shell,
+.locale-shell[dir="rtl"] {
   font-family: var(--font-arabic);
 }
 img {
@@ -338,13 +339,9 @@ section {
   font-size: 15px;
   line-height: 1.7;
   color: var(--text-muted);
-  direction: rtl;
   max-width: 520px;
   margin-bottom: 32px;
   padding-inline-start: 16px;
-  border-inline-start: 2px solid var(--border-subtle);
-}
-body[dir="rtl"] .ar-lead {
   border-inline-start: 2px solid var(--border-subtle);
 }
 
@@ -1242,7 +1239,8 @@ body[dir="rtl"] .ar-lead {
 .verdict:hover {
   transform: translateX(-3px);
 }
-body[dir="rtl"] .verdict:hover {
+html[dir="rtl"] .verdict:hover,
+.locale-shell[dir="rtl"] .verdict:hover {
   transform: translateX(3px);
 }
 .verdict.fair {

@@ -22,6 +22,15 @@ function withPathnameForRsc(request: NextRequest, response: NextResponse) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set(PATHNAME_HEADER, pathname);
 
+  const localeFromPath = pathname.startsWith("/en")
+    ? "en"
+    : pathname.startsWith("/ar")
+      ? "ar"
+      : null;
+  if (localeFromPath) {
+    requestHeaders.set("X-Next-Locale", localeFromPath);
+  }
+
   const nextResponse = NextResponse.next({
     request: { headers: requestHeaders },
   });

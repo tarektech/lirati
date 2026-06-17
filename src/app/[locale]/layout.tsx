@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { setStaticParamsLocale } from "next-international/server";
+import { LocaleDocument } from "@/components/site/locale-document";
 import { getSiteUrl } from "@/lib/site-url";
 import { I18nProviderClient } from "@/locales/client";
 import { getStaticParams } from "@/locales/server";
@@ -83,10 +84,14 @@ export default async function LocaleLayout({
   const { locale: raw } = await params;
   const locale = isAppLocale(raw) ? raw : "ar";
   setStaticParamsLocale(locale);
+  const dir = locale === "en" ? "ltr" : "rtl";
 
   return (
     <I18nProviderClient locale={locale} fallback={null}>
-      {children}
+      <div className="locale-shell" dir={dir} lang={locale}>
+        <LocaleDocument locale={locale} />
+        {children}
+      </div>
     </I18nProviderClient>
   );
 }

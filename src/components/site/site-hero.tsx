@@ -4,11 +4,12 @@ import { useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { DEMO_RATE, HERO_CYCLE } from "@/lib/demo-data";
-import { useI18n } from "@/locales/client";
+import { useCurrentLocale, useI18n } from "@/locales/client";
 import { RichHtml } from "./rich-html";
 
 export function SiteHero() {
   const t = useI18n();
+  const locale = useCurrentLocale();
   const reduceMotion = useReducedMotion();
   const [idx, setIdx] = useState(0);
   const [fade, setFade] = useState(true);
@@ -57,7 +58,7 @@ export function SiteHero() {
             <RichHtml html={String(t("hero.title"))} />
           </h1>
           <p className="lead">{t("hero.lead")}</p>
-          <p className="ar-lead" dir="rtl">
+          <p className="ar-lead" dir={locale === "en" ? "rtl" : "ltr"}>
             {t("hero.arLead")}
           </p>
           <div className="hero-actions">

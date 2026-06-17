@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Tajawal } from "next/font/google";
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 import { DataBuddyTracker } from "@/components/data-buddy-tracker";
@@ -52,10 +52,19 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const pathname = (await headers()).get("x-pathname") ?? "/ar";
-  const isEn = pathname.startsWith("/en");
-  const lang = isEn ? "en" : "ar";
-  const dir = isEn ? "ltr" : "rtl";
+  const headerStore = await headers();
+  const pathname = headerStore.get("x-pathname") ?? "";
+  const localeHeader = headerStore.get("X-Next-Locale");
+  const localeCookie = (await cookies()).get("Next-Locale")?.value;
+
+  const locale =
+    localeHeader === "en" || localeHeader === "ar"
+      ? localeHeader
+      : pathname.startsWith("/en") || localeCookie === "en"
+        ? "en"
+        : "ar";
+  const lang = locale;
+  const dir = locale === "en" ? "ltr" : "rtl";
 
   return (
     <html
